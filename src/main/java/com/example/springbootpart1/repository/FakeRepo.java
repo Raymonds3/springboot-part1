@@ -20,14 +20,6 @@ public class FakeRepo implements FakeRepoInterface {
         };
     }
 
-    public Collection<User> getAllUsers(){
-        return this.user.values();
-    }
-
-    public User getAllById(int id) {
-        return this.user.get(id);
-    }
-
     public void insertUser(User user) {
         this.user.put(user.getId(),user);
     }

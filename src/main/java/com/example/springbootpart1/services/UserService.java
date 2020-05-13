@@ -8,10 +8,6 @@ import java.util.*;
 
 public interface UserService {
 
-    Collection<User> getAllUsers();
-
-    User getAllById(int id);
-
     void addUser(User user);
 
     void getUser(int id);
