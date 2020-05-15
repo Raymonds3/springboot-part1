@@ -4,9 +4,9 @@ import com.example.springbootpart1.model.User;
 
 public interface FakeRepoInterface {
 
-    void insertUser(User user);
+    User insertUser(long id, String name, String surname);
 
-    void findUserById(int id);
+    User findUserById(int id);
 
-    void deleteUser(int id);
+    User deleteUser(int id);
 }

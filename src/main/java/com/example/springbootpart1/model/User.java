@@ -2,16 +2,14 @@ package com.example.springbootpart1.model;
 
 public class User {
     private long Id;
-    private String name;
-    private String surname;
+    private static String name;
+    private static String surname;
 
     public User(Long id, String name, String surname) {
         Id = id;
         this.name = name;
         this.surname = surname;
     }
-
-    public User(){}
 
     public long getId() { return Id; }
     public String getName() { return name; }

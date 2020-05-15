@@ -8,7 +8,7 @@ import java.util.*;
 
 public interface UserService {
 
-    void addUser(User user);
+    void addUser(long id, String name, String surname);
 
     void getUser(int id);
 

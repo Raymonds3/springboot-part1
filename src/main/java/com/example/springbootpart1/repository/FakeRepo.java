@@ -20,15 +20,15 @@ public class FakeRepo implements FakeRepoInterface {
         };
     }
 
-    public void insertUser(User user) {
-        this.user.put(user.getId(),user);
+    public User insertUser(long id, String name, String surname) {
+        return this.user.put(id, new User(id, name, surname));
     }
 
-    public void findUserById(int id) {
-        this.user.get(user);
+    public User findUserById(int id) {
+        return this.user.get(id);
     }
 
-    public void deleteUser(int id) {
-        this.user.remove(id);
+    public User deleteUser(int id) {
+        return this.user.remove(id);
     }
 }
