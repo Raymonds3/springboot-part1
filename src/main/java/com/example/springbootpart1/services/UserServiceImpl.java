@@ -2,11 +2,8 @@ package com.example.springbootpart1.services;
 
 import com.example.springbootpart1.model.User;
 import com.example.springbootpart1.repository.FakeRepo;
-import com.example.springbootpart1.repository.FakeRepoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import static com.example.springbootpart1.model.User.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -16,8 +13,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addUser(long id, String name, String surname) {
-        fakeRepo.insertUser(id, name, surname);
-        String Name = name + " " + surname + " Entered";
+        User usr = fakeRepo.insertUser(id, name, surname);
+        String Name = usr.getName() + " " + usr.getSurname()+ " Entered";
         System.out.println("\n"+Name);
     }
 

@@ -15,13 +15,14 @@ public class FakeRepo implements FakeRepoInterface {
                 put((long) 1, new User((long) 1, "Raymond","Serekwane"));
                 put((long) 2, new User((long) 2, "Thabo","Surname"));
                 put((long) 3, new User((long) 3, "Tom","Moyo"));
-                put((long) 4, new User((long) 4, "Ryne","Cooper"));
+                put((long) 4, new User((long) 4, "Ryen","Cooper"));
             }
         };
     }
 
     public User insertUser(long id, String name, String surname) {
-        return this.user.put(id, new User(id, name, surname));
+        this.user.put(id, new User(id, name, surname));
+        return user.get(id);
     }
 
     public User findUserById(int id) {
