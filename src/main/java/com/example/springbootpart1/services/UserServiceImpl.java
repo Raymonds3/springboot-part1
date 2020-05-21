@@ -5,30 +5,29 @@ import com.example.springbootpart1.repository.FakeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static com.example.springbootpart1.repository.FakeRepo.users;
+
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private FakeRepo fakeRepo;
 
-    @Override
-    public void addUser(long id, String name, String surname) {
-        User usr = fakeRepo.insertUser(id, name, surname);
-        String Name = usr.getName() + " " + usr.getSurname()+ " Entered";
-        System.out.println("\n"+Name);
+    public String addUser(long id, String name, String surname) {
+        User user = fakeRepo.insertUser(id, name, surname);
+        return String.format("%s %s was Entered",
+                user.getName(), user.getSurname());
     }
 
-    @Override
-    public void getUser(int id) {
+    public String getUser(long id) {
         User user = fakeRepo.findUserById(id);
-        String find = "Hello "+ user.getName()+" "+user.getSurname();
-        System.out.println("\n"+find);
+        return String.format("Hello %s %s",
+                user.getName(), user.getSurname());
     }
 
-    @Override
-    public void removeUser(int id) {
+    public String removeUser(long id) {
         User user = fakeRepo.deleteUser(id);
-        String delete = user.getName()+" "+user.getSurname()+" was Deleted";
-        System.out.println("\n"+delete);
+        return String.format("%s %s was Deleted",
+                user.getName(), user.getSurname());
     }
 }
