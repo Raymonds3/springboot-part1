@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class Springbootpart1ApplicationTests {
@@ -21,10 +22,17 @@ class Springbootpart1ApplicationTests {
 
 	@Test
 	public void addUser() {
-		assertThat(this.userService.addUser(5, "Simcar", "Mahlangu"))
-				.contains("Simcar Mahlangu was Entered");
-//		assertThat(this.userService.addUser(5, "Simcar", "Mahlangu")
-//				.contains("Simcar Mahla was Entered"));
+		assertEquals("Simcar Mahlangu was Entered", userService.addUser(5,"Simcar", "Mahlangu"));
+	}
+
+	@Test
+	public void getUser() {
+		assertEquals("Hello Raymond Serekwane", userService.getUser(1));
+	}
+
+	@Test
+	public void removeUser() {
+		assertEquals("Tom Moyo was Deleted", userService.removeUser(3));
 	}
 
 }
